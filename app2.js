@@ -56,6 +56,18 @@ function deleteFormValues(id) {
       console.error(error);
     });
 }
+function updateDisplayArea(id, updatedValues) {
+  const displayArea = document.getElementById('displayArea');
+  if (displayArea) {
+    const namePara = displayArea.querySelector(`[data-id="${id}"] .name`);
+    const emailPara = displayArea.querySelector(`[data-id="${id}"] .email`);
+    const phonePara = displayArea.querySelector(`[data-id="${id}"] .phone`);
+
+    namePara.textContent = `Name: ${updatedValues.name}`;
+    emailPara.textContent = `Email: ${updatedValues.email}`;
+    phonePara.textContent = `Phone: ${updatedValues.phone}`;
+  }
+}
 
 window.onload = function() {
   axios.get('https://crudcrud.com/api/your-unique-identifier')
